@@ -1,5 +1,55 @@
 <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
-  <button type="submit">Créer</button>
+  <!-- Name -->
+  <div>
+    <label for="name">Nom du produit</label>
+    <input
+      type="text"
+      id="name"
+      formControlName="name"
+      [class.red-border]="name?.invalid && (name?.dirty || name?.touched)"
+      [class.gray-border]="!(name?.invalid && (name?.dirty || name?.touched))"
+      placeholder="Nom du produit"
+    />
+    <div *ngIf="name?.invalid && (name?.dirty || name?.touched)" class="error-msg">
+      <span *ngIf="name?.errors?.['required']">Ce champ est requis.</span>
+      <span *ngIf="name?.errors?.['minlength']">Le nom doit faire au moins 3 caractères.</span>
+    </div>
+  </div>
+
+  <!-- Price -->
+  <div>
+    <label for="price">Prix</label>
+    <input
+      type="number"
+      id="price"
+      formControlName="price"
+      [class.red-border]="price?.invalid && (price?.dirty || price?.touched)"
+      [class.gray-border]="!(price?.invalid && (price?.dirty || price?.touched))"
+      placeholder="Prix du produit"
+      min="0"
+      step="0.01"
+    />
+    <div *ngIf="price?.invalid && (price?.dirty || price?.touched)" class="error-msg">
+      <span *ngIf="price?.errors?.['required']">Ce champ est requis.</span>
+      <span *ngIf="price?.errors?.['min']">Le prix doit être ≥ 0.</span>
+    </div>
+  </div>
+
+  <!-- Release Date -->
+  <div>
+    <label for="releaseDate">Date de sortie</label>
+    <input
+      type="text"
+      id="releaseDate"
+      formControlName="releaseDate"
+      placeholder="Date de sortie du produit"
+    />
+  </div>
+
+  <!-- Submit -->
+  <button type="submit" [disabled]="productForm.invalid" [class.disabled-btn]="productForm.invalid">
+    Créer le produit
+  </button>
 </form>
 
 <hr />

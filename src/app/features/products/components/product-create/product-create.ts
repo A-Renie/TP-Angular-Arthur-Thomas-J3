@@ -30,4 +30,20 @@ export class ProductCreate implements OnInit {
       console.log(this.productForm.value);
     }
   }
+
+  get name() {
+    return this.productForm.get('name');
+  }
+
+  get price() {
+    return this.productForm.get('price');
+  }
+
+  get releaseDate() {
+    return this.productForm.get('releaseDate');
+  }
+
+  get inStock() {
+    return this.productForm.get('inStock');
+  }
 }
