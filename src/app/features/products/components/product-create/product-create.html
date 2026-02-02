@@ -3,27 +3,61 @@
 
     <h3>Ajouter un produit</h3>
 
+    <!-- NOM -->
     <div class="field">
       <label>Nom</label>
-      <input type="text" formControlName="name" />
-      <small class="error" *ngIf="name?.touched && name?.errors?.['required']">
+
+      <input
+        type="text"
+        formControlName="name"
+        [ngClass]="{
+          'invalid': name?.invalid && (name?.dirty || name?.touched),
+          'valid': name?.valid && (name?.dirty || name?.touched)
+        }"
+      />
+
+      <small
+        class="error"
+        *ngIf="name?.touched && name?.errors?.['required']">
         Le nom est obligatoire.
       </small>
     </div>
 
+    <!-- PRIX -->
     <div class="field">
       <label>Prix</label>
-      <input type="number" formControlName="price" />
-      <small class="error" *ngIf="price?.touched && price?.errors?.['min']">
+
+      <input
+        type="number"
+        formControlName="price"
+        [ngClass]="{
+          'invalid': price?.invalid && (price?.dirty || price?.touched),
+          'valid': price?.valid && (price?.dirty || price?.touched)
+        }"
+      />
+
+      <small
+        class="error"
+        *ngIf="price?.touched && price?.errors?.['min']">
         Le prix doit être positif.
       </small>
     </div>
 
+    <!-- DATE -->
     <div class="field">
       <label>Date de sortie</label>
-      <input type="date" formControlName="releaseDate" />
+
+      <input
+        type="date"
+        formControlName="releaseDate"
+        [ngClass]="{
+          'invalid': releaseDate?.invalid && (releaseDate?.dirty || releaseDate?.touched),
+          'valid': releaseDate?.valid && (releaseDate?.dirty || releaseDate?.touched)
+        }"
+      />
     </div>
 
+    <!-- CHECKBOX -->
     <div class="field checkbox">
       <label>
         <input type="checkbox" formControlName="inStock" />
@@ -34,9 +68,10 @@
     <button type="submit" [disabled]="productForm.invalid">
       Créer
     </button>
+
   </form>
 
-  <!-- debug (tu peux le garder pour le TP) -->
+  <!-- DEBUG (OK pour le TP) -->
   <pre class="debug">{{ productForm.value | json }}</pre>
   <p class="debug">Valide ? {{ productForm.valid }}</p>
 </div>
