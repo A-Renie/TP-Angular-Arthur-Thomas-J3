@@ -1,9 +1,53 @@
 .main-header {
-    background-color: #3f51b5;
-    /* Un joli bleu Angular */
-    color: white;
-    padding: 1.5rem;
-    text-align: center;
-    font-family: sans-serif;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #3f51b5;
+  color: white;
+  padding: 1.5rem;
+  text-align: center;
+  font-family: sans-serif;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  background-color: #3f51b5;
+  color: white;
+}
+
+.search-bar {
+  display: flex;
+  align-items: right;
+  gap: 8px;
+}
+
+.search-bar input {
+  margin-top: 1.5rem;
+  width: 100%;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: none;
+}
+
+.search-bar button {
+  padding: 3px 6px;
+  max-height: 1.5rem;
+  max-width: 3rem;
+  border-radius: 6px;
+  border: none;
+  background: white;
+  color: #3f51b5;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.search-bar button:hover {
+  background: #3f51b5;
+  color: white;
+}
+
+.user-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
 }
