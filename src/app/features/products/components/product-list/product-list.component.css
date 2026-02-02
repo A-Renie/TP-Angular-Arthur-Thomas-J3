@@ -77,9 +77,29 @@ h2 {
   transform: none !important;
   cursor: not-allowed !important;
 }
+
+.update-btn{
+   margin-top: 10px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #1649a7;
+  background: white;
+  color: #1649a7;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+.update-btn:hover {
+  background: #1649a7;
+  color: white;
+}
+.actions{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .delete-btn {
   margin-top: 10px;
-  padding: 6px 10px;
+  padding: 6px;
   border-radius: 6px;
   border: 1px solid #c62828;
   background: white;

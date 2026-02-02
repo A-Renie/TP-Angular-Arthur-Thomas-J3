@@ -34,18 +34,25 @@ export class ProductService {
   products$ = this.productsSubject.asObservable();
   addProduct(product: Omit<Product, 'id'>): void {
     const newProduct: Product = {
-      id: this.idCounter++, // 👈 ID généré ici
+      id: this.idCounter++,
       ...product,
     };
 
-    this.productsSubject.next([
-      ...this.productsSubject.value,
-      newProduct,
-    ]);
+    this.productsSubject.next([...this.productsSubject.value, newProduct]);
   }
-   deleteProduct(id: number): void {
-    this.productsSubject.next(
-      this.productsSubject.value.filter(p => p.id !== id)
-    );
+  deleteProduct(id: number): void {
+    this.productsSubject.next(this.productsSubject.value.filter((p) => p.id !== id));
+  }
+  private selectedProductSubject = new BehaviorSubject<Product | null>(null);
+  selectedProduct$ = this.selectedProductSubject.asObservable();
+
+  selectProduct(product: Product): void {
+    this.selectedProductSubject.next(product);
+  }
+
+  updateProduct(updated: Product): void {
+    const products = this.productsSubject.value.map((p) => (p.id === updated.id ? updated : p));
+
+    this.productsSubject.next(products);
   }
 }

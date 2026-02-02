@@ -21,15 +21,30 @@ export class ProductCreateComponent {
     });
     
   }
-  
+selectedProduct?: Product;
 
-   onSubmit(): void {
-    if (this.productForm.valid) {
-      const product: Product = this.productForm.value;
-      this.productService.addProduct(product); 
-      this.productForm.reset({ inStock: true }); 
+onSubmit(): void {
+  if (this.productForm.valid) {
+    const productFormValue = this.productForm.value;
+
+    if (this.selectedProduct) {
+      // 🔁 UPDATE
+      const updatedProduct: Product = {
+        id: this.selectedProduct.id,
+        ...productFormValue,
+      };
+
+      this.productService.updateProduct(updatedProduct);
+    } else {
+      // ➕ CREATE
+      this.productService.addProduct(productFormValue);
     }
+
+    this.productForm.reset({ inStock: true });
+    this.selectedProduct = undefined;
   }
+}
+
   get name() {
     return this.productForm.get('name');
   }

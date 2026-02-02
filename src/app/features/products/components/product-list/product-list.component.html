@@ -20,8 +20,12 @@
         <p class="date">Sortie le : {{ product.releaseDate | date: 'mediumDate' }}</p>
 
         <p class="stock-warning" *ngIf="!product.inStock">⚠️ RUPTURE DE STOCK</p>
+        <div class="actions"> 
+          <button class="update-btn" (click)="updateProduct(product)">Modifier</button>
         <button class="delete-btn" (click)="deleteProduct(product.id)">Supprimer</button>
       </div>
+        </div>
+        
     </div>
   </ng-container>
 </div>
