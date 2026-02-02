@@ -8,7 +8,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrl: './product-create.css',
 })
 export class ProductCreateComponent {
-productForm: FormGroup;
+  productForm: FormGroup;
 
   constructor(private fb: FormBuilder) {
     this.productForm = this.fb.group({
@@ -23,5 +23,14 @@ productForm: FormGroup;
     if (this.productForm.valid) {
       console.log(this.productForm.value);
     }
+  }
+  get name() {
+    return this.productForm.get('name');
+  }
+  get price() {
+    return this.productForm.get('price');
+  }
+  get releaseDate() {
+    return this.productForm.get('releaseDate');
   }
 }

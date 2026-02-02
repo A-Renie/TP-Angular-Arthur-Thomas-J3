@@ -1,8 +1,42 @@
+<div class="form-wrapper">
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()" class="product-form">
 
-<form [formGroup]="productForm" (ngSubmit)="onSubmit()">
-  <button type="submit">Créer</button>
-</form>
+    <h3>Ajouter un produit</h3>
 
-<!-- DEBUG (indispensable pour le TP) -->
-<pre>État du formulaire : {{ productForm.value | json }}</pre>
-<p>Valide ? : {{ productForm.valid }}</p>
+    <div class="field">
+      <label>Nom</label>
+      <input type="text" formControlName="name" />
+      <small class="error" *ngIf="name?.touched && name?.errors?.['required']">
+        Le nom est obligatoire.
+      </small>
+    </div>
+
+    <div class="field">
+      <label>Prix</label>
+      <input type="number" formControlName="price" />
+      <small class="error" *ngIf="price?.touched && price?.errors?.['min']">
+        Le prix doit être positif.
+      </small>
+    </div>
+
+    <div class="field">
+      <label>Date de sortie</label>
+      <input type="date" formControlName="releaseDate" />
+    </div>
+
+    <div class="field checkbox">
+      <label>
+        <input type="checkbox" formControlName="inStock" />
+        En stock
+      </label>
+    </div>
+
+    <button type="submit" [disabled]="productForm.invalid">
+      Créer
+    </button>
+  </form>
+
+  <!-- debug (tu peux le garder pour le TP) -->
+  <pre class="debug">{{ productForm.value | json }}</pre>
+  <p class="debug">Valide ? {{ productForm.valid }}</p>
+</div>
