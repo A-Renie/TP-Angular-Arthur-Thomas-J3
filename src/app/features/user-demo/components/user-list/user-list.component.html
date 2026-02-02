@@ -1,22 +1,25 @@
-<!-- Message de chargement si pas de données -->
-<div *ngIf="!(users$ | async) as users">
-    <p>Chargement des utilisateurs...</p>
+<!-- Chargement -->
+<div *ngIf="!(users$ | async)">
+  <p>Chargement des utilisateurs...</p>
 </div>
 
-<!-- Liste des utilisateurs -->
+<!-- Données chargées -->
 <div *ngIf="users$ | async as users">
-    <h2>Liste des utilisateurs</h2>
+  <h2>Liste des utilisateurs</h2>
 
-    <div class="user-list">
-        <app-user-card *ngFor="let user of users" [user]="user" (userSelected)="handleUserSelection($event)">
-        </app-user-card>
-    </div>
+  <div class="user-list">
+    <app-user-card
+      *ngFor="let user of users"
+      [user]="user"
+      (userSelected)="onUserReceived($event)">
+    </app-user-card>
+  </div>
 
-    <!-- Affichage de l'utilisateur sélectionné -->
-    <div *ngIf="selectedUser" class="selected-user">
-        <h3>Utilisateur sélectionné :</h3>
-        <p><strong>Nom :</strong> {{ selectedUser.name }}</p>
-        <p><strong>Email :</strong> {{ selectedUser.email }}</p>
-        <p><strong>Rôle :</strong> {{ selectedUser.role }}</p>
-    </div>
+  <!-- Utilisateur sélectionné -->
+  <div *ngIf="selectedUser" class="selected-user">
+    <h3>Utilisateur sélectionné :</h3>
+    <p><strong>Nom :</strong> {{ selectedUser.name }}</p>
+    <p><strong>Email :</strong> {{ selectedUser.email }}</p>
+    <p><strong>Rôle :</strong> {{ selectedUser.role }}</p>
+  </div>
 </div>

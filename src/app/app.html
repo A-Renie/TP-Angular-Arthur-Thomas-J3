@@ -1,11 +1,28 @@
-<!-- J'appelle mon composant Header ici -->
+<!-- Header -->
 <app-header></app-header>
 
 <main style="padding: 20px; font-family: sans-serif;">
-  <h2>Bienvenue</h2>
-  <p>L'application est initialisée et prête.</p>
-  <app-user-list></app-user-list>
-  <app-product-list></app-product-list>
+
+  <!-- Boutons de navigation -->
+  <div class="navigation-buttons">
+    <button (click)="showProducts()">Voir Produits</button>
+    <button (click)="showUsers()">Voir Équipe</button>
+  </div>
+
+  <!-- SECTION PRODUITS -->
+  <section
+    class="catalog-section"
+    *ngIf="currentView() === 'products'">
+    <app-product-list></app-product-list>
+  </section>
+
+  <hr *ngIf="currentView() === 'products' || currentView() === 'users'">
+
+  <!-- SECTION UTILISATEURS -->
+  <section
+    class="team-section"
+    *ngIf="currentView() === 'users'">
+    <app-user-list></app-user-list>
+  </section>
+
 </main>
-
-

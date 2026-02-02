@@ -22,7 +22,8 @@ export class UserList implements OnInit {
     this.users$ = this.dataService.getUsers();
   }
 
-  handleUserSelection(user: User): void {
+  onUserReceived(user: User): void {
+    console.log('Utilisateur reçu :', user.name);
     this.selectedUser = user;
   }
 }

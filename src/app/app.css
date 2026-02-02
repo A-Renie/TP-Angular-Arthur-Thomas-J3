@@ -1,0 +1,26 @@
+.navigation-buttons {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.navigation-buttons button {
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid #1976d2;
+  background: white;
+  color: #1976d2;
+  font-weight: 500;
+  cursor: pointer;
+
+  transition: background 0.2s ease, color 0.2s ease, transform 0.1s ease;
+}
+
+.navigation-buttons button:hover {
+  background: #1976d2;
+  color: white;
+}
+
+.navigation-buttons button:active {
+  transform: scale(0.97);
+}
