@@ -1,0 +1,12 @@
+
+<div class="search-container">
+  <input
+    type="text"
+    [(ngModel)]="searchTerm"
+    placeholder="Chercher un produit..."
+  >
+
+  <button (click)="search()">Go</button>
+
+  <p>Recherche en cours : {{ searchTerm }}</p>
+</div>
