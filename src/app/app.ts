@@ -22,4 +22,5 @@ export class App {
   onSearchChanged(term: string): void {
     this.searchTerm = term;
   }
+  
 }

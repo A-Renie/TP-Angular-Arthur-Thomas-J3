@@ -6,6 +6,7 @@
     <input
       type="text"
       [(ngModel)]="searchTerm"
+      (ngModelChange)="emitSearch()"
       placeholder="Je cherche un truc"
     >
     <button (click)="emitSearch()">Go</button>

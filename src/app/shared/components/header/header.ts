@@ -15,4 +15,5 @@ export class Header {
   emitSearch(): void {
     this.searchChanged.emit(this.searchTerm);
   }
+  
 }
