@@ -1,6 +1,8 @@
 <!-- Header -->
-<app-header></app-header>
+<app-header (searchChanged)="onSearchChanged($event)"></app-header>
+<!-- Header -->
 
+<!-- Main -->
 <main style="padding: 20px; font-family: sans-serif;">
 
   <!-- Boutons de navigation -->
@@ -8,6 +10,10 @@
     <button (click)="showProducts()">Voir Produits</button>
     <button (click)="showUsers()">Voir Équipe</button>
   </div>
+
+  <!-- Barre de recherche -->
+
+  <app-product-search [searchTerm]="searchTerm"></app-product-search>
 
   <!-- SECTION PRODUITS -->
   <section
@@ -27,3 +33,11 @@
   </section>
 
 </main>
+
+<!-- Fin Main -->
+
+
+<!-- Footer -->
+
+
+<!-- Fin Footer -->

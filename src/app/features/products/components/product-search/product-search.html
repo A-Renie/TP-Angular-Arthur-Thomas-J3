@@ -1,8 +1,6 @@
-<div class="search-container">
-  <!-- C'est ici que la magie opère -->
-  <input type="text" [(ngModel)]="searchTerm" placeholder="Chercher..." />
-  <button (click)="search()">Go</button>
-  <!-- Pour vérifier en temps réel -->
-  <p>Recherche en cours : {{ searchTerm }}</p>
-</div>
 
+<div class="search-container">
+  <p *ngIf="searchTerm">
+  Recherche en cours : {{ searchTerm }}
+</p>
+</div>

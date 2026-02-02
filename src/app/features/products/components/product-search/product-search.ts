@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-product-search',
@@ -6,10 +6,6 @@ import { Component } from '@angular/core';
   templateUrl: './product-search.html',
   styleUrl: './product-search.css',
 })
-export class ProductSearch {
-  // La variable de stockage
-  searchTerm: string = '';
-  search(): void {
-    console.log(this.searchTerm);
-  }
+export class ProductSearchComponent  {
+   @Input() searchTerm = '';
 }
