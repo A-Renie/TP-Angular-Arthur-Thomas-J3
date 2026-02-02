@@ -1,0 +1,20 @@
+<div class="product-container">
+  <h2>Catalogue de Produits</h2>
+
+  <div class="empty-message" *ngIf="products.length === 0">
+    <p>Aucun produit disponible pour le moment.</p>
+  </div>
+
+  <div class="product-grid" *ngIf="products.length > 0">
+    <div class="product-card" *ngFor="let product of products" [class.out-of-stock]="!product.inStock">
+
+      <h3>{{ product.name | uppercase }}</h3>
+      <p class="price">Prix : {{ product.price | currency:'EUR' }}</p>
+      <p class="date">Sortie le : {{ product.releaseDate | date:'mediumDate' }}</p>
+
+      <p class="stock-warning" *ngIf="!product.inStock">
+        ⚠️ RUPTURE DE STOCK
+      </p>
+    </div>
+  </div>
+</div>
