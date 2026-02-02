@@ -1,0 +1,8 @@
+
+<form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+  <button type="submit">Créer</button>
+</form>
+
+<!-- DEBUG (indispensable pour le TP) -->
+<pre>État du formulaire : {{ productForm.value | json }}</pre>
+<p>Valide ? : {{ productForm.valid }}</p>
