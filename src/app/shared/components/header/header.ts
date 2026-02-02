@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,Output ,EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -8,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class Header {
   title: string = 'Projet fil rouge';
+   searchTerm = '';
+
+  @Output() searchChanged = new EventEmitter<string>();
+
+  emitSearch(): void {
+    this.searchChanged.emit(this.searchTerm);
+  }
 }

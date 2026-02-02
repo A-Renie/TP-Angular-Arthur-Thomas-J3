@@ -1,5 +1,13 @@
 <header class="main-header">
-    <!-- Angular va remplacer {{ title }} par 'Ascent Project Manager Stocké dans header.ts' -->
+    <!-- Angular va remplacer {{ title }} par 'le contenu défini et stocké dans header.ts' -->
     <h1>{{ title }}</h1>
-    <small>Mon projet fil rouge</small>
+    <small>par Arthur et Thomas</small>
+    <div class="search-bar">
+    <input
+      type="text"
+      [(ngModel)]="searchTerm"
+      placeholder="Je cherche un truc"
+    >
+    <button (click)="emitSearch()">Go</button>
+  </div>
 </header>

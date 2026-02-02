@@ -2,6 +2,7 @@ import { NgModule, provideBrowserGlobalErrorListeners } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CoreModule } from './core/core.module';
 import { AppRoutingModule } from './app-routing.module';
+import { SharedModule } from './shared/shared.module';
 
 import { App } from './app';
 import { Header } from './shared/components/header/header';
@@ -21,7 +22,8 @@ import { ProductsModule } from './features/products/products.module'
     AppRoutingModule,
     CoreModule,
     UserDemoModule,
-    ProductsModule
+    ProductsModule,
+    SharedModule,
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),
